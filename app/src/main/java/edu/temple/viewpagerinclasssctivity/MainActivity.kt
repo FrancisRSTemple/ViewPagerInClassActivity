@@ -24,7 +24,13 @@ class MainActivity : AppCompatActivity() {
 
         addButton.setOnClickListener{
             numberOfPages++
+            //notifies the FragmentStateAdapter that a change was made
             viewPager.adapter?.notifyItemChanged(numberOfPages-1)
+
+            //this line will let you access fragments from the FragmentManager directly
+            //supportFragmentManager.findFragmentByTag("f"+position)
+
+            viewPager.currentItem = numberOfPages-1
         }
 
         //need to pass the reference to the thing that has the ViewPager2
